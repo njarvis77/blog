@@ -45,4 +45,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rolify'
 
+gem 'pundit'
+
+#gem 'pry-rails'
+
 gem 'record_tag_helper', '~> 1.0'

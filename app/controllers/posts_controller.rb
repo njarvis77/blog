@@ -25,6 +25,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    authorize @post
 
     respond_to do |format|
       if @post.save
@@ -54,7 +56,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+#    binding.pry
+    authorize @post
     @post.destroy
+
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
